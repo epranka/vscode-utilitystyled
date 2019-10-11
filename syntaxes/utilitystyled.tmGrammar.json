@@ -4,11 +4,6 @@
 	"injectionSelector": "L:source",
 	"patterns": [
 		{
-			"include": "#utility-styled"
-		}
-	],
-	"repository": {
-		"utility-styled": {
 			"begin": "(us)(`)",
 			"beginCaptures": {
 				"1": {
@@ -38,13 +33,15 @@
 					"include": "#template"
 				}
 			]
-		},
+		}
+	],
+	"repository": {
 		"template": {
 			"match": "(\\b[a-z\\-]+\\b)",
 			"name": "constant.numeric.utilitystyled"
 		},
 		"property": {
-			"match": "([a-z\\-\\:]+\\-)((?:(?![a-z\\-\\:]+\\-).)*)",
+			"match": "([a-z\\-\\:]+\\-)((?:(?![a-z\\-\\:]+\\-).)*?)",
 			"captures": {
 				"1": {
 					"name": "support.type.property-name.utilitystyled"
