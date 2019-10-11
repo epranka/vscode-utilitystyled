@@ -7,21 +7,24 @@
 			"begin": "(us)(`)",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.letter"
+					"name": "keyword.letter.utilitystyled"
 				},
 				"2": {
-					"name": "punctuation.definition.string.template.begin.js"
+					"name": "punctuation.definition.string.template.begin.js.utilitystyled"
 				}
 			},
 			"end": "`",
 			"endCaptures": {
 				"0": {
-					"name": "punctuation.definition.string.template.end.js"
+					"name": "punctuation.definition.string.template.end.js.utilitystyled"
 				}
 			},
 			"patterns": [
 				{
 					"include": "#interpolation"
+				},
+				{
+					"include": "#braces"
 				},
 				{
 					"include": "#prefix"
@@ -38,18 +41,31 @@
 	"repository": {
 		"template": {
 			"match": "(\\b[a-z\\-]+\\b)",
-			"name": "constant.numeric.utilitystyled"
+			"name": "support.type.property-name.utilitystyled"
 		},
 		"property": {
-			"match": "([a-z\\-\\:]+\\-)((?:(?![a-z\\-\\:]+\\-).)*?)",
+			"match": "([a-z\\-\\:]+)(\\-)([^\\s\\(]+)",
 			"captures": {
 				"1": {
 					"name": "support.type.property-name.utilitystyled"
 				},
 				"2": {
+					"name": "keyword.letter.utilitystyled"
+				},
+				"3": {
 					"name": "constant.numeric.utilitystyled"
 				}
 			}
+		},
+		"braces": {
+			"begin": "\\(",
+			"end": "\\)",
+			"name": "constant.numeric.utilitystyled",
+			"patterns": [
+				{
+					"include": "#braces"
+				}
+			]
 		},
 		"prefix": {
 			"match": "\\b([a-z0-9\\-]+)\\:(([a-z0-9\\-]+)\\:)?(([a-z0-9\\-]+)\\:)?",
@@ -63,12 +79,12 @@
 			"begin": "\\${",
 			"beginCaptures": {
 				"0": {
-					"name": "punctuation.definition.template-expression.begin.js"
+					"name": "punctuation.definition.template-expression.begin.js.utilitystyled"
 				}
 			},
 			"endCaptures": {
 				"0": {
-					"name": "punctuation.definition.template-expression.end.js"
+					"name": "punctuation.definition.template-expression.end.js.utilitystyled"
 				}
 			},
 			"name": "variable.interpolation",
