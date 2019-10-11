@@ -1,0 +1,86 @@
+{
+	"scopeName": "source.css.utilitystyled",
+	"fileTypes": ["js", "jsx", "ts", "tsx"],
+	"injectionSelector": "L:source",
+	"patterns": [
+		{
+			"include": "#utility-styled"
+		}
+	],
+	"repository": {
+		"utility-styled": {
+			"begin": "(us)(`)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.letter"
+				},
+				"2": {
+					"name": "punctuation.definition.string.template.begin.js"
+				}
+			},
+			"end": "`",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.template.end.js"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#interpolation"
+				},
+				{
+					"include": "#prefix"
+				},
+				{
+					"include": "#property"
+				},
+				{
+					"include": "#template"
+				}
+			]
+		},
+		"template": {
+			"match": "(\\b[a-z\\-]+\\b)",
+			"name": "constant.numeric.utilitystyled"
+		},
+		"property": {
+			"match": "([a-z\\-\\:]+\\-)((?:(?![a-z\\-\\:]+\\-).)*)",
+			"captures": {
+				"1": {
+					"name": "support.type.property-name.utilitystyled"
+				},
+				"2": {
+					"name": "constant.numeric.utilitystyled"
+				}
+			}
+		},
+		"prefix": {
+			"match": "\\b([a-z0-9\\-]+)\\:(([a-z0-9\\-]+)\\:)?(([a-z0-9\\-]+)\\:)?",
+			"captures": {
+				"0": {
+					"name": "support.constant.media.utilitystyled"
+				}
+			}
+		},
+		"interpolation": {
+			"begin": "\\${",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.template-expression.begin.js"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.template-expression.end.js"
+				}
+			},
+			"name": "variable.interpolation",
+			"end": "}",
+			"patterns": [
+				{
+					"include": "source.ts#expression"
+				}
+			]
+		}
+	}
+}

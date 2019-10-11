@@ -1,0 +1,40 @@
+{
+	"name": "vscode-utilitystyled",
+	"displayName": "vscode-utilitystyled",
+	"publisher": "kodmina",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "source.css.utilitystyled",
+				"aliases": [
+					"CSS (UtilityStyled) "
+				]
+			}
+		],
+		"grammars": [
+			{
+				"injectTo": [
+					"source.js",
+					"source.ts",
+					"source.jsx",
+					"source.js.jsx",
+					"source.tsx"
+				],
+				"language": "source.css.utilitystyled",
+				"scopeName": "source.css.utilitystyled",
+				"path": "./syntaxes/utilitystyled.tmGrammar.json",
+				"embeddedLanguages": {
+					"meta.embedded.line.ts": "typescript"
+				}
+			}
+		]
+	}
+}
