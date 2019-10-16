@@ -94,10 +94,13 @@ const checkIfInUtilityStyledTemplate = (
 	while (token) {
 		if (
 			token.kind === ts.SyntaxKind.NoSubstitutionTemplateLiteral ||
-			token.kind === ts.SyntaxKind.TemplateExpression
+			token.kind === ts.SyntaxKind.TemplateExpression ||
+			token.kind === ts.SyntaxKind.TaggedTemplateExpression
 		) {
 			template = token;
+			break;
 		}
+
 		token = token.parent;
 	}
 	if (template) {
