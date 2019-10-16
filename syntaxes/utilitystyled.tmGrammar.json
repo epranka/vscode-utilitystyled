@@ -44,7 +44,7 @@
 			"name": "support.type.property-name.utilitystyled"
 		},
 		"property": {
-			"match": "([a-z\\-\\:]+)(\\-)([^\\s\\(`]+)",
+			"match": "([a-z\\-\\:]+)(\\-)(?:(?=\\()|([^\\s\\(`]+))",
 			"captures": {
 				"1": {
 					"name": "support.type.property-name.utilitystyled"
@@ -55,7 +55,12 @@
 				"3": {
 					"name": "constant.numeric.utilitystyled"
 				}
-			}
+			},
+			"patterns": [
+				{
+					"include": "#braces"
+				}
+			]
 		},
 		"braces": {
 			"begin": "\\(",
