@@ -4,20 +4,29 @@
 	"publisher": "kodmina",
 	"description": "",
 	"version": "0.0.6",
+	"main": "./out/extension.js",
+	"scripts": {
+		"compile": "tsc -p ./",
+		"watch": "tsc --watch -p ./"
+	},
 	"engines": {
 		"vscode": "^1.35.0"
 	},
 	"categories": [
+		"Snippets",
 		"Programming Languages"
 	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/epranka/vscode-utilitystyled"
 	},
+	"activationEvents": [
+		"*"
+	],
 	"contributes": {
 		"languages": [
 			{
-				"id": "source.css.utilitystyled",
+				"id": "css.utilitystyled",
 				"aliases": [
 					"CSS (UtilityStyled) "
 				]
@@ -32,13 +41,31 @@
 					"source.js.jsx",
 					"source.tsx"
 				],
-				"language": "source.css.utilitystyled",
+				"language": "css.utilitystyled",
 				"scopeName": "source.css.utilitystyled",
 				"path": "./syntaxes/utilitystyled.tmGrammar.json",
 				"embeddedLanguages": {
 					"meta.embedded.line.ts": "typescript"
 				}
 			}
-		]
+		],
+		"configuration": {
+			"type": "object",
+			"title": "UtilityStyled",
+			"properties": {
+				"utilitystyled.autocomplete": {
+					"default": true,
+					"type": "boolean",
+					"description": "Enable/Disable UtilityStyled autocomplete"
+				}
+			}
+		}
+	},
+	"devDependencies": {
+		"@types/node": "^12.11.1",
+		"@types/vscode": "^1.39.0"
+	},
+	"dependencies": {
+		"typescript": "^3.6.4"
 	}
 }
