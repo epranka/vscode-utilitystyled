@@ -3,7 +3,7 @@
 	"displayName": "vscode-utilitystyled",
 	"publisher": "kodmina",
 	"description": "",
-	"version": "0.0.6",
+	"version": "0.1.0",
 	"main": "./out/extension.js",
 	"scripts": {
 		"compile": "tsc -p ./",
